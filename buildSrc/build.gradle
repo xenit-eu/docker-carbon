@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+ext {
+    junitJupiterVersion = '5.5.2'
+    hamcrestVersion = '1.3'
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}"
+    testImplementation "org.hamcrest:hamcrest-all:${hamcrestVersion}"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
